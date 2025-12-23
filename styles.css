@@ -17,7 +17,7 @@ body { font-family: 'Roboto', sans-serif; line-height: 1.4; color: #333; overflo
 /* HERO & OVERLAYS */
 .hero {
     background: linear-gradient(to top, rgba(26,43,86,0.9) 40%, rgba(26,43,86,0.1)), 
-                url('https://api.cloudflare.com/client/v4/accounts/7528b30ee578319a28ba32eef5917f9d/images/v1/21d2e20c-ad3c-4d28-b071-d25252903c00');
+                url('https://imagedelivery.net/zoKSCa_GJei-y9JR_FXRuQ/21d2e20c-ad3c-4d28-b071-d25252903c00/public');
     background-size: cover;
     padding: 60px 0;
 }
