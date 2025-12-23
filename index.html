@@ -3,99 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VA Mortgage Savings | Refinance Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>VA Mortgage Savings - Stress Less Mortgage</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <section class="hero">
+    <header class="top-banner">
+        <div class="container">
+            <p>Veterans Only: Avoid Leaving Thousands on the Table!</p>
+        </div>
+    </header>
+
+    <section class="hero-section">
         <div class="container hero-grid">
-            <div class="hero-content">
-                <p class="tagline">Veterans Only: Avoid Leaving Thousands on the Table!</p>
-                <h1 class="main-headline">Avoid a <span>$100,000</span> <br>MORTGAGE MISTAKE</h1>
-                <div class="sub-headline-box">
-                    <h2>Find Out What My Rate Is Costing Me</h2>
+            
+            <div class="hero-main">
+                <h1 class="headline">Avoid a <span class="highlight-gold">$100,000</span><br>MORTGAGE MISTAKE</h1>
+                
+                <div class="red-ribbon">
+                    Find Out What My Rate Is Costing Me
                 </div>
 
-                <div class="comparison-section">
-                    <h3>If Your VA Refi Rate Is Still 5%, You Could Be Losing Over <span class="gold-text">$100,000</span> in Interest</h3>
+                <div class="comparison-box">
+                    <h2 class="comparison-title">If Your VA Refi Rate Is Still 5%, You Could Be Losing Over <span class="gold-text">$100,000</span> in Interest</h2>
                     
-                    <div class="comparison-card">
-                        <div class="card-header">$300,000 VA Refinance Loan</div>
-                        <div class="card-body">
-                            <div class="rate-column">
-                                <span class="rate">5.00%</span>
-                                <span class="price">$1,610</span>
-                                <span class="label">30 Year Payments</span>
+                    <div class="calc-card">
+                        <div class="calc-header">$300,000 VA Refinance Loan</div>
+                        <div class="calc-body">
+                            <div class="calc-col">
+                                <span class="calc-rate">5.00%</span>
+                                <span class="calc-price">$1,610</span>
+                                <span class="calc-label">30 Year Payments</span>
                             </div>
-                            <div class="arrow">➔</div>
-                            <div class="rate-column highlight">
-                                <span class="rate">3.25%</span>
-                                <span class="price">$1,305</span>
-                                <span class="label">30 Year Payments</span>
+                            <div class="calc-arrow">➔</div>
+                            <div class="calc-col highlight">
+                                <span class="calc-rate">3.25%</span>
+                                <span class="calc-price">$1,305</span>
+                                <span class="calc-label">30 Year Payments</span>
                             </div>
                         </div>
                     </div>
-                    <p class="disclaimer">*5.00% APR vs. 3.25% APR, 360 payments, for illustrative purposes only.</p>
+                    <p class="fine-print">*5.00% APR vs. 3.25% APR, 360 payments, for illustrative purposes only.</p>
                 </div>
             </div>
 
-            <div class="form-container">
-                <div class="form-card">
+            <aside class="form-wrapper">
+                <div class="lead-form">
                     <h3>Check Your Savings</h3>
-                    <form id="leadForm">
-                        <div class="input-group">
+                    <form id="va-form">
+                        <div class="field">
                             <label>Your Name</label>
-                            <input type="text" placeholder="Full Name" required>
+                            <input type="text" placeholder="First and Last Name" required>
                         </div>
-                        <div class="input-group">
+                        <div class="field">
                             <label>Property State</label>
                             <select>
-                                <option value="FL">Florida</option>
-                                <option value="TX">Texas</option>
-                                <option value="CA">California</option>
+                                <option>Florida</option>
+                                <option>Other State</option>
                             </select>
                         </div>
-                        <div class="input-group">
+                        <div class="field">
                             <label>Property Zip Code</label>
                             <input type="text" placeholder="Zip Code" required>
                         </div>
-                        <div class="input-group">
+                        <div class="field">
                             <label>Phone</label>
-                            <input type="tel" placeholder="Phone Number" required>
+                            <input type="tel" placeholder="(___) ___-____" required>
                         </div>
-                        <button type="submit" class="cta-button">SEE MY SAVINGS!</button>
-                        <p class="form-footer">100% Free Quote • No Obligation</p>
+                        <button type="submit" class="btn-primary">SEE MY SAVINGS!</button>
+                        <p class="form-subtext">100% Free Quote • No Obligation</p>
                     </form>
-                    <p class="legal-text">By clicking "SEE MY SAVINGS", you consent to our terms of service and marketing communications.</p>
+                    <div class="form-legal">
+                        By clicking "SEE MY SAVINGS", consent to join the following SMS and email marketing lists: Stress Less Finance, Stress Less Mortgage. Consent is not a condition to purchase. Msg & data rates may apply & number of msgs vary. Reply STOP to cancel. I also agree to the Terms of Service and Privacy Policy.
+                    </div>
                 </div>
-            </div>
+            </aside>
         </div>
     </section>
 
-    <section class="benefits">
+    <section class="benefits-strip">
         <div class="container">
-            <h2 class="benefits-title">Could You Use an Extra <span>$300+ per Month</span> for Retirement?</h2>
-            <div class="benefits-grid">
-                <ul class="benefits-list">
-                    <li>✔️ Lower Your Monthly Payment</li>
-                    <li>✔️ Get Cash Back from Equity</li>
-                    <li>✔️ Consolidate Your Higher-Interest Debt</li>
+            <h2 class="strip-title">Could You Use an Extra <span>$300+ per Month</span> for Retirement?</h2>
+            <div class="strip-flex">
+                <ul class="check-list">
+                    <li>Lower Your Monthly Payment</li>
+                    <li>Get Cash Back from Equity</li>
+                    <li>Consolidate Your Higher-Interest Debt</li>
                 </ul>
-                <div class="benefits-image">
-                    <div class="placeholder-img"></div>
+                <div class="couple-image">
+                    <img src="https://via.placeholder.com/400x200" alt="Happy Veteran Couple">
                 </div>
             </div>
+            <p class="strip-disclaimer">*5.00% APR vs. 3.25% APR, 360 payments. For illustrative purposes only. Reserved for loans $300,000 or less.</p>
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="compliance-footer">
         <div class="container">
-            <p>© 2024 Stress Less Mortgage. All rights reserved. Equal Housing Lender. NMLS #2263808</p>
+            <div class="footer-logos">
+                <img src="https://via.placeholder.com/100x40?text=Equal+Housing" alt="Equal Housing Opportunity">
+                <span>NMLS #2263808</span>
+            </div>
+            <p>Loan scenarios are used for illustrative purposes only and are based on the information in the chart. The projected interest savings assumes the borrower refinancing at a 3.3% APR. Loans are subject to 5.00% on a 30-year fixed VA mortgage. The savings of over $100,000 is an illustrative example based on a $300,000 loan amount over 30 years. Actual savings will vary based on your individual situation.</p>
+            <p class="copyright">© 2024 Stress Less Mortgage. All rights reserved. Equal Housing Lender: NMLS #2263808</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
