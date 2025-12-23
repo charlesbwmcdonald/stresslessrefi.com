@@ -1,82 +1,77 @@
-:root {
-    --navy: #1a2b56;
-    --gold: #cc9900;
-    --red: #b91d1d;
-    --orange: #f37021;
-}
-
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f5;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Hero & Grid Layout */
-.hero-section {
-    padding: 50px 0;
-    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
-                url('https://images.unsplash.com/photo-1508612761958-e931d843bdd5?auto=format&fit=crop&w=1500&q=80'); /* American Flag placeholder */
-    background-size: cover;
-}
-
-.hero-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.hero-main { flex: 2; min-width: 320px; }
-.form-wrapper { flex: 1; min-width: 320px; }
-
-/* Text Styles */
-.tagline { color: var(--navy); font-weight: bold; margin-bottom: 5px; border-bottom: 2px solid var(--gold); display: inline-block; }
-.headline { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--navy); line-height: 1; margin-top: 10px; }
-.highlight-gold { color: var(--gold); }
-
-.red-ribbon {
-    background: var(--red);
-    color: white;
-    padding: 15px 25px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 5px;
-    margin: 20px 0;
-    display: inline-block;
-}
-
-/* Comparison Table */
-.comparison-box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.calc-card { border: 1px solid #ddd; border-radius: 5px; overflow: hidden; }
-.calc-header { background: var(--navy); color: white; text-align: center; padding: 10px; font-weight: bold; }
-.calc-body { display: flex; justify-content: space-around; align-items: center; padding: 20px; }
-.calc-price { font-size: 2rem; font-weight: 900; display: block; }
-.highlight .calc-price { color: #2d6a4f; }
-.calc-arrow { font-size: 2rem; color: var(--orange); }
-
-/* Form Styles */
-.lead-form { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-.field { margin-bottom: 15px; }
-.field label { display: block; font-size: 0.9rem; font-weight: bold; margin-bottom: 5px; }
-.field input, .field select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; }
-
-.btn-primary {
+/* Positioning Wrapper */
+.relative-wrapper {
+    position: relative;
     width: 100%;
-    padding: 15px;
-    background: linear-gradient(to bottom, #ff914d, #f37021);
-    color: white;
-    border: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 0 #c25a1a;
 }
 
-/* Footer */
-.compliance-footer { padding: 40px 0; background: #eee; font-size: 0.7rem; color: #666; text-align: center; }
+/* Top Banner Logo Overlay */
+.logo-overlay {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.main-logo {
+    width: 120px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Lower Banner Overlay Styling */
+.benefits-banner {
+    background: linear-gradient(to right, rgba(26, 43, 86, 0.95) 40%, rgba(26, 43, 86, 0.2)),
+                url('couple-on-beach.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    color: white;
+}
+
+.benefits-headline {
+    font-size: 2.2rem;
+    max-width: 600px;
+    margin-bottom: 25px;
+}
+
+.benefits-headline span {
+    color: var(--gold);
+}
+
+.overlay-checklist {
+    list-style: none;
+    padding: 0;
+}
+
+.overlay-checklist li {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.check-icon {
+    background: var(--gold);
+    color: var(--navy);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .benefits-banner {
+        background: var(--navy); /* Fallback to solid color on mobile for readability */
+    }
+    .logo-overlay {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
