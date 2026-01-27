@@ -437,37 +437,45 @@
     </div>
 
     <div class="floating-form">
-      <div class="form-inner">
-        <img src="assets/Stress_Less-mainlogo.png" alt="Stress Less Mortgage Logo" class="logo">
-        <h2 class="form-title">Check Your Savings</h2>
-        <form>
-          <div class="input-group">
-            <label>Your Name</label>
-            <input type="text" class="form-input">
-          </div>
-          <div class="input-group">
-            <label>Property State</label>
-            <select class="form-input">
-              <option>Florida</option>
-              <option>Texas</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <label>Property Zip Code</label>
-            <input type="text" class="form-input">
-          </div>
-          <div class="input-group">
-            <label>Phone</label>
-            <input type="tel" class="form-input">
-          </div>
-          <button type="button" class="submit-btn">SEE MY SAVINGS!</button>
-          <div class="no-obligation">100% Free Quote • No Obligation</div>
-          <div class="fine-print">
-            By clicking "SEE MY SAVINGS", consent to join the following SMS and email marketing lists. Stress Less Mortgage. Msg & data rates may apply. Reply STOP to cancel.
-          </div>
-        </form>
+  <div class="form-inner">
+    <img src="assets/Stress_Less-mainlogo.png" alt="Stress Less Mortgage Logo" class="logo">
+    <h2 class="form-title">Check Your Savings</h2>
+    <form id="leadForm">
+      <div class="field">
+        <label>Your Name</label>
+        <input type="text" class="form-input" id="name">
+        <div class="err"></div>
       </div>
-    </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" class="form-input" id="email">
+        <div class="err"></div>
+      </div>
+      <div class="field">
+        <label>Property State</label>
+        <select class="form-input" id="state">
+          <!-- States will be populated by JS -->
+        </select>
+        <div class="err"></div>
+      </div>
+      <div class="field">
+        <label>Property Zip Code</label>
+        <input type="text" class="form-input" id="zip">
+        <div class="err"></div>
+      </div>
+      <div class="field">
+        <label>Phone</label>
+        <input type="tel" class="form-input" id="phone">
+        <div class="err"></div>
+      </div>
+      <button type="submit" class="submit-btn">SEE MY SAVINGS!</button>
+      <div class="no-obligation">100% Free Quote • No Obligation</div>
+      <div class="fine-print">
+        By clicking "SEE MY SAVINGS", consent to join the following SMS and email marketing lists. Stress Less Mortgage. Msg & data rates may apply. Reply STOP to cancel.
+      </div>
+    </form>
+  </div>
+</div>
   </header>
 
   <div class="middle-section">
