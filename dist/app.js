@@ -8,6 +8,10 @@
     "South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming","District of Columbia"
   ];
 
+  // ⚡ Load Officer CRM Form ID
+  const FORM_ID = "lU1PmX790LcmntfWobcf";
+  const SUBMIT_URL = `https://api.leadconnectorhq.com/widget/form/${FORM_ID}`;
+
   // Year
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
@@ -16,8 +20,10 @@
   const form = document.getElementById("leadForm");
   const state = document.getElementById("state");
   const name = document.getElementById("name");
+  const email = document.getElementById("email");
   const zip = document.getElementById("zip");
   const phone = document.getElementById("phone");
+  const submitBtn = form?.querySelector('button[type="submit"]');
 
   // Modal (optional)
   const modal = document.getElementById("modal");
@@ -28,7 +34,6 @@
     modal.setAttribute("aria-hidden", "false");
   };
   const closeModal = () => modal?.setAttribute("aria-hidden", "true");
-
   modal?.addEventListener("click", (e) => {
     if (e.target?.dataset?.close) closeModal();
   });
@@ -70,35 +75,86 @@
 
   const validate = () => {
     let ok = true;
-
-    if (!name?.value.trim()) { setErr(name, "Required"); ok = false; } else setErr(name, "");
-    if (!state?.value) { setErr(state, "Required"); ok = false; } else setErr(state, "");
-
+    
+    // Name validation
+    if (!name?.value.trim()) { 
+      setErr(name, "Required"); 
+      ok = false; 
+    } else setErr(name, "");
+    
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email?.value.trim()) {
+      setErr(email, "Required");
+      ok = false;
+    } else if (!emailPattern.test(email.value.trim())) {
+      setErr(email, "Enter valid email");
+      ok = false;
+    } else setErr(email, "");
+    
+    // State validation
+    if (!state?.value) { 
+      setErr(state, "Required"); 
+      ok = false; 
+    } else setErr(state, "");
+    
+    // Zip validation
     const z = (zip?.value || "").replace(/\D/g, "");
-    if (z.length !== 5) { setErr(zip, "Enter 5-digit zip"); ok = false; } else setErr(zip, "");
-
+    if (z.length !== 5) { 
+      setErr(zip, "Enter 5-digit zip"); 
+      ok = false; 
+    } else setErr(zip, "");
+    
+    // Phone validation
     const p = (phone?.value || "").replace(/\D/g, "");
-    if (p.length !== 10) { setErr(phone, "Enter 10-digit phone"); ok = false; } else setErr(phone, "");
-
+    if (p.length !== 10) { 
+      setErr(phone, "Enter 10-digit phone"); 
+      ok = false; 
+    } else setErr(phone, "");
+    
     return ok;
   };
 
-  form?.addEventListener("submit", (e) => {
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
-    const payload = {
-      name: name.value.trim(),
-      state: state.value,
-      zip: zip.value.replace(/\D/g,"").slice(0,5),
-      phone: phone.value
-    };
+    // Disable button during submission
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "SUBMITTING...";
+    }
 
-    // TODO: send to your endpoint
-    // fetch("/api/leads", { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(payload) });
+    // Prepare form data with Load Officer field names
+    const formData = new FormData();
+    formData.append("Full Name", name.value.trim());
+    formData.append("Email", email.value.trim());
+    formData.append("State", state.value);
+    formData.append("Postal Code", zip.value.replace(/\D/g,"").slice(0,5));
+    formData.append("Phone", phone.value);
 
-    openModal(`Lead captured for ${payload.name} (${payload.state} ${payload.zip}).`);
-    form.reset();
-    state.value = "Florida";
+    try {
+      const response = await fetch(SUBMIT_URL, {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        openModal(`Thank you! We'll contact you shortly about your savings.`);
+        form.reset();
+        state.value = "Florida";
+      } else {
+        throw new Error("Submission failed");
+      }
+    } catch (error) {
+      console.error("Lead submission error:", error);
+      openModal(`Something went wrong. Please call us at (XXX) XXX-XXXX`);
+    } finally {
+      // Re-enable button
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SEE MY SAVINGS!";
+      }
+    }
   });
 })();
